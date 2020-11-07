@@ -1,0 +1,52 @@
+{
+    "name": "dgame/php-connection",
+    "type": "library",
+    "description": "php connection",
+    "keywords": [],
+    "homepage": "https://github.com/php-connection",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Randy Schütt",
+            "email": "rswhite4@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "dgame/php-time": "^0.5",
+        "psr/http-client": "^1.0",
+        "psr/http-message": "^1.0"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.4",
+        "php-parallel-lint/php-parallel-lint": "^1.2",
+        "phpmd/phpmd": "^2.8",
+        "phpstan/phpstan": "^0.12",
+        "phpunit/phpunit": "^9.4",
+        "psalm/phar": "^3.11",
+        "slevomat/coding-standard": "dev-master",
+        "spaceemotion/php-coding-standard": "dev-master"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4"
+        },
+        "process-timeout": 0,
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Dgame\\Connection\\": "src/"
+        },
+        "classmap": [
+            "src/"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "analyse": "phpcstd --fix",
+        "coverage": "phpunit --coverage-clover=coverage",
+        "test": "phpunit"
+    }
+}
