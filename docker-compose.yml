@@ -1,4 +1,4 @@
-version: '3.7'
+version: "3.7"
 
 services:
   php-fpm:
@@ -11,4 +11,3 @@ services:
     env_file: .env
     volumes:
       - .:/var/www/html/:delegated
-      - ./vendor/:/var/www/html/vendor

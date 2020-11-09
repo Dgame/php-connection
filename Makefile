@@ -1,6 +1,6 @@
 DOCKER_PHP_SERVICE = php-fpm
 
-.PHONY: new composer-install composer-up db up kill test analyse
+.PHONY: new up kill test analyse install update validate
 
 new: kill
 	#cp .env.dist .env
@@ -16,7 +16,7 @@ test:
 analyse:
 	docker-compose exec $(DOCKER_PHP_SERVICE) composer analyse
 install:
-	docker-compose exec $(DOCKER_PHP_SERVICE) composer install --no-interaction --no-scripts --prefer-dist
+	docker-compose exec $(DOCKER_PHP_SERVICE) composer install --no-interaction --prefer-dist
 update:
 	docker-compose exec $(DOCKER_PHP_SERVICE) composer up --with-all-dependencies
 validate:

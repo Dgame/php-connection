@@ -14,7 +14,7 @@ on:
 env:
   PHP_EXTENSIONS: json
   PHP_EXTENSIONS_CACHE_KEY: php-extensions-cache-v1
-  PHP_VERSION: '7.4'
+  PHP_VERSION: "7.4"
 
 jobs:
   lint-and-test:
@@ -71,9 +71,6 @@ jobs:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
-
-      - name: Install private repo token
-        run: composer config --global github-oauth.github.com ${{ secrets.PRIVATE_TOKEN }}
 
       - name: Install dependencies
         run: composer install --no-interaction --no-suggest --no-scripts --prefer-dist --ansi

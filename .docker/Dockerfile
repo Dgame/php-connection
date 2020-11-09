@@ -8,14 +8,14 @@ RUN apk update && \
 #    apk add --no-cache --virtual .build-deps $PHPIZE_DEPS icu-dev && \
 #    apk del .build-deps
 
-COPY --chown=www-data:www-data --from=composer:2 /usr/bin/composer /usr/local/bin/composer
-
 RUN mkdir -p /var/www/.ssh/ && \
     touch /var/www/.ssh/known_hosts && \
     ssh-keyscan github.com >> /var/www/.ssh/known_hosts
 
 WORKDIR .
 COPY . .
+
+COPY --chown=www-data:www-data --from=composer:2 /usr/bin/composer /usr/local/bin/composer
 
 RUN usermod -u $USER_ID www-data && chown -R www-data:www-data /var/www/ .
 USER www-data
